@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>cbExample-2.2</title>
+</head>
+<body>
+	<!-- 
+	Создайте страницу с кнопкой, при нажатии по кнопке на странице должен создаваться параграф с произвольным текстом. После создания 10 параграфов все они должны быть удалены. 
+	 -->
+	<input id="btn" type="button" value="Создать">
+	<script type="text/javascript">
+		d = document;
+		counter = 0;
+		sum = 0;
+		var btn = d.getElementById('btn');
+		btn.onclick = function () {
+
+			var elem = d.createElement('p');
+			elem.innerHTML = 'Paragraph';
+
+			d.body.appendChild(elem);
+			var body = d.body.childNodes;
+			
+			counter++;
+			if (counter == 10) {
+				for (var i = 0; i < body.length; i++) {
+					if (body[i].nodeName == "P") {
+						d.body.removeChild(body[i]);
+						i--;
+					}	
+				}
+				counter = 0;
+			}
+		}
+	</script>
+</body>
+</html>
