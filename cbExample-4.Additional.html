@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cbExample-4.Additional</title>
+	<style type="text/css">
+		div {
+			width: 100px;
+			height: 100px;
+			float: left;
+			background: green;
+			margin-right: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<input id="btn" type="button" value="BTN" />
+
+	<script type="text/javascript">
+		var counter = 0;
+		var btn = document.getElementById('btn');
+		var divs = document.getElementsByTagName('div');
+		btn.onclick = function () {
+			for (i=0; i <= divs.length-1; i++) {
+				divs[i].style.backgroundColor = 'green';
+			}
+
+			divs[counter].style.backgroundColor = 'red';
+			counter++;
+			if (counter == divs.length) counter = 0;
+
+		}
+
+	</script>
+</body>
+</html>
