@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Example-1</title>
+</head>
+<body>
+	<!-- 	
+	Разработайте страницу с произвольным количеством HTML элементов. Создайте модуль, который после загрузки страницы поменяет текст во всех параграфах на PARAGRAPH. Вы должны разработать две версии модуля с использованием объекта в качестве пространства имен и с использованием анонимной функции. 
+	-->
+	<p>Текст, который изменится</p>
+	<p>Текст, который изменится</p>
+	<p>Текст, который изменится</p>
+	<p>Текст, который изменится</p>
+	<p>Текст, который изменится</p>
+	<input id="btn1" type="button" value="1 способ">
+	<input id="btn2" type="button" value="2 способ">
+	<input id="btnClear" type="button" value="Очистить">
+
+	<script>
+		d = document;
+		
+		var btn1 = d.getElementById('btn1');
+		btn1.onclick = function () {
+			Module1 = {};
+
+			Module1.changeText = function () {
+				var p = d.getElementsByTagName('p');
+				for (var i = 0; i <= p.length - 1; i++) {
+					p[i].innerHTML = 'PARAGRAPH';
+				}
+			}
+
+			Module1.changeText();
+		}
+
+		var btn2 = d.getElementById('btn2');
+		btn2.onclick = function () {
+			var p = d.getElementsByTagName('p');
+			for (var i = 0; i <= p.length - 1; i++) {
+				p[i].innerHTML = 'PARAGRAPH';
+			}
+		};
+
+		var btnClear = d.getElementById('btnClear');
+		btnClear.onclick = function () {
+			var p = d.getElementsByTagName('p');
+			for (var i = 0; i <= p.length - 1; i++) {
+				p[i].innerHTML = '';
+			}
+		}
+	</script>
+</body>
+</html>
