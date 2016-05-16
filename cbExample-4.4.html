@@ -68,38 +68,74 @@
 		var moveRightIntervalId;
 		var trigger = true;
 
-		btn[2].onclick = function () { 
+		if ((parseInt(divStyle.top)) <= 0) btn[0].disabled = true;
+		if ((parseInt(divStyle.top)) >= 400) btn[1].disabled = true;
+		if ((parseInt(divStyle.left)) >= 1250) btn[2].disabled = true;
+		if ((parseInt(divStyle.left)) <= 0) btn[3].disabled = true;
+
+		btn[0].onclick = function () { 	
 				if (trigger) {
+					btn[1].disabled = false;
 					moveRightIntervalId = setInterval( function () {
-					div.style.left = (parseInt(divStyle.left) + 2) + 'px';
-					if (parseInt(div.style.left) >= 1266) {
-						clearInterval(moveRightIntervalId);
-					}
+					div.style.top = (parseInt(divStyle.top) - 2) + 'px';
 					trigger = false;
-					}, 10)	
+					if (parseInt(div.style.top) <= 0) {
+						clearInterval(moveRightIntervalId);
+						trigger = true;
+						btn[0].disabled = true;
+					}	
+					}, 1)	
 				}	 
 		};
 
 		btn[1].onclick = function () { 
 				if (trigger) {
+					btn[0].disabled = false;
 					moveRightIntervalId = setInterval( function () {
 					div.style.top = (parseInt(divStyle.top) + 2) + 'px';
+					trigger = false;
 					if (parseInt(div.style.top) >= 400) {
 						clearInterval(moveRightIntervalId);
+						trigger = true;
+						btn[1].disabled = true;
 					}
-					trigger = false;
-					}, 10)
+					}, 1)
 				}
 		};
 
+		btn[2].onclick = function () { 
+				if (trigger) {
+					btn[3].disabled = false;
+					moveRightIntervalId = setInterval( function () {
+					div.style.left = (parseInt(divStyle.left) + 2) + 'px';
+					if (parseInt(div.style.left) >= 1250) {
+						clearInterval(moveRightIntervalId);
+						trigger = true;
+						btn[2].disabled = true;
+					}
+					}, 1)	
+				}	 
+		};
+
+		btn[3].onclick = function () { 
+				if (trigger) {
+					btn[2].disabled = false;
+					moveRightIntervalId = setInterval( function () {
+					div.style.left = (parseInt(divStyle.left) - 2) + 'px';
+					trigger = false;
+					if (parseInt(div.style.left) <= 0) {
+						clearInterval(moveRightIntervalId);
+						trigger = true;
+						btn[3].disabled = true;
+					}	
+					}, 1)
+				}
+		};
 
 		btn[4].onclick = function () {
 			clearInterval(moveRightIntervalId);
 			trigger = true;
 		} 
-
-
-
 	}
 		
 
