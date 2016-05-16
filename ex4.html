@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Разработайте страницу, разместите на ней четыре кнопки – «вверх», «вниз», «влево», «вправо». Поместите на странице div с текстом. При нажатии на кнопки должна запускаться анимация, которая перемещает div на 100 px в соответствующем направлении. </title>
+</head>
+<style type="text/css">
+	input {
+		float: left;
+	}
+
+	input[type="button"] {
+		width: 100px;
+		height: 30px;
+		border: 1px solid black;
+		outline: none;
+		cursor: pointer;
+	}
+
+	input[type="button"]:hover {
+		background: lightblue;
+	}
+
+	#div {
+		width: 100px;
+		height: 100px;
+		background: green;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+	}
+
+	#btns-wrapper {
+		height: 50px;
+	}
+
+	#wrapper {
+		position: relative;
+	}
+</style>
+
+<body>
+
+	<div id="btns-wrapper">
+		<input type="button" value="Вверх" />
+		<input type="button" value="Вниз" />
+		<input type="button" value="Вправо" />
+		<input type="button" value="Влево" />
+		<input type="button" value="Пауза" />
+	</div>
+
+	<div id="wrapper">
+		<div id="div">
+			some <br/>
+			text
+		</div>	
+	</div>
+
+
+
+	<script type="text/javascript">
+
+	window.onload = function () {
+		var div = document.getElementById('div');
+		var divStyle = getComputedStyle(div);
+		
+		var btn = document.getElementsByTagName('input');
+		var moveRightIntervalId;
+		var trigger = true;
+
+		btn[2].onclick = function () { 
+				if (trigger) {
+					moveRightIntervalId = setInterval( function () {
+					div.style.left = (parseInt(divStyle.left) + 2) + 'px';
+					if (parseInt(div.style.left) >= 1266) {
+						clearInterval(moveRightIntervalId);
+					}
+					trigger = false;
+					}, 10)	
+				}	 
+		};
+
+		btn[1].onclick = function () { 
+				if (trigger) {
+					moveRightIntervalId = setInterval( function () {
+					div.style.top = (parseInt(divStyle.top) + 2) + 'px';
+					if (parseInt(div.style.top) >= 400) {
+						clearInterval(moveRightIntervalId);
+					}
+					trigger = false;
+					}, 10)
+				}
+		};
+
+
+		btn[4].onclick = function () {
+			clearInterval(moveRightIntervalId);
+			trigger = true;
+		} 
+
+
+
+	}
+		
+
+	</script>
+</body>
+</html>
