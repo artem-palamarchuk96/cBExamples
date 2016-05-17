@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<input class="fields" type="text" value="">
+<input class="fields" type="text" value="">
+<input class="btns" type="button" value="+">
+<input class="btns" type="button" value="-">
+<input class="btns" type="button" value="*">
+<input class="btns" type="button" value="/">
+
+<input id="result" type="text" value="">
+
+</body>
+
+<script type="text/javascript">
+	d = document;
+	
+	masBtns = d.getElementsByClassName('btns');
+	res = d.getElementById('result');
+
+	masBtns[0].addEventListener('click', function  () {
+		masFields = d.getElementsByClassName('fields');
+		res = parseInt(masFields[0].value) + parseInt(masFields[1].value);
+		d.getElementById('result').value = res;
+	})
+
+	masBtns[1].addEventListener('click', function  () {
+		masFields = d.getElementsByClassName('fields');
+		res = parseInt(masFields[0].value) - parseInt(masFields[1].value);
+		d.getElementById('result').value = res;
+	})
+
+	masBtns[2].addEventListener('click', function  () {
+		masFields = d.getElementsByClassName('fields');
+		res = parseInt(masFields[0].value) * parseInt(masFields[1].value);
+		d.getElementById('result').value = res;
+	})
+
+	masBtns[3].addEventListener('click', function  () {
+		masFields = d.getElementsByClassName('fields');
+		res = parseInt(masFields[0].value) / parseInt(masFields[1].value);
+		d.getElementById('result').value = res;
+	})
+
+</script>
+</html>
