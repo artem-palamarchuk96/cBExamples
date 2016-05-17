@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cbExample-6.Additional</title>
+</head>
+
+<style type="text/css">
+	#block {
+		width: 50px;
+		height: 50px;
+		background: yellow;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+</style>
+<body>
+
+<div id="block"></div>
+
+<script type="text/javascript">
+	d = document;
+	elem = d.getElementById('block');
+	styles = getComputedStyle(elem);
+
+	d.body.addEventListener('keydown', moveRight);
+
+	function moveRight() {
+		elem.style.left = parseInt(styles.left) + 20 + 'px';
+		console.log(styles.left);	
+	}
+
+	
+
+
+</script>
+</body>
+</html>
